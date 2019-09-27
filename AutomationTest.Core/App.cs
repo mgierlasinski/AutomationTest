@@ -7,7 +7,7 @@ namespace AutomationTest.Core
     {
         public override void Initialize()
         {
-            RegisterAppStart<MenuViewModel>();
+            RegisterAppStart<RootViewModel>();
         }
     }
 }
