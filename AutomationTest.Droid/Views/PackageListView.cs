@@ -1,12 +1,12 @@
 ﻿using Android.App;
 using Android.OS;
 using AutomationTest.Core.ViewModels;
-using MvvmCross.Platforms.Android.Views;
+using MvvmCross.Droid.Support.V7.AppCompat;
 
 namespace AutomationTest.Droid.Views
 {
     [Activity]
-    public class PackageListView : MvxActivity<PackageListViewModel>
+    public class PackageListView : MvxAppCompatActivity<PackageListViewModel>
     {
         protected override void OnCreate(Bundle bundle)
         {
