@@ -65,6 +65,8 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\MenuView.cs" />
+    <Compile Include="Views\PackageDimmsView.cs" />
+    <Compile Include="Views\PackageListView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -113,6 +115,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\MenuView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\PackageListView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\PackageDimmsView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
