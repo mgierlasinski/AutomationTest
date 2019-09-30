@@ -4,11 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <TextView
+  <mvvmcross.droid.support.v7.recyclerview.MvxRecyclerView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="24dp"
-    android:text="Package list view"
-    android:gravity="center" 
-    local:MvxBind="Text Title"/>
+    android:layout_height="match_parent"
+    local:MvxItemTemplate="@layout/package_item" 
+    local:MvxBind="ItemsSource Packages"/>
 </LinearLayout>

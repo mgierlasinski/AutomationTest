@@ -9,6 +9,6 @@ namespace AutomationTest.Data.Repositories
     {
         Task InitializeAsync();
         void AddPackage(Package package);
-        IEnumerable<Package> GetPackagesForDay(DateTimeOffset date);
+        IEnumerable<Package> GetPackagesForRange(DateTimeOffset from, DateTimeOffset to);
     }
 }

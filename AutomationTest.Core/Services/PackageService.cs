@@ -27,7 +27,10 @@ namespace AutomationTest.Core.Services
 
         public IEnumerable<PackageItem> GetPackagesForDay(DateTimeOffset date)
         {
-            var result = _packageRepository.GetPackagesForDay(date);
+            var from = date.Date;
+            var to = from.AddDays(1).AddMilliseconds(-1);
+
+            var result = _packageRepository.GetPackagesForRange(from, to);
             return result.Select(x => _mappingService.MapPackage(x));
         }
     }

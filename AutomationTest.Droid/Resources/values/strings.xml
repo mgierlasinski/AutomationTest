@@ -1,5 +1,7 @@
 <resources>
   <string name="app_name">Automation Test</string>
+  <string name="enter_package_dimms">Enter package dimms</string>
+  <string name="show_packages">Show packages</string>
   <string name="enter_barcode">Enter barcode</string>
   <string name="enter_dimms">Enter Dimms Width x Height x Depth</string>
   <string name="width">W</string>

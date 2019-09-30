@@ -47,10 +47,10 @@ namespace AutomationTest.Data.Repositories
             }
         }
 
-        public IEnumerable<Package> GetPackagesForDay(DateTimeOffset date)
+        public IEnumerable<Package> GetPackagesForRange(DateTimeOffset from, DateTimeOffset to)
         {
             return _realm.All<Package>()
-                .Where(x => x.Date == date)
+                .Where(x => x.Date >= from && x.Date <= to)
                 .OrderByDescending(x => x.Barcode);
         }
     }

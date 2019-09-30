@@ -7,11 +7,11 @@
   <Button 
     android:layout_width="match_parent" 
     android:layout_height="wrap_content" 
-    android:text="Enter Package Dimms" 
+    android:text="@string/enter_package_dimms" 
     local:MvxBind="Click ShowPackageDimmsCommand"/>
   <Button 
     android:layout_width="match_parent" 
     android:layout_height="wrap_content" 
-    android:text="Show Packages" 
+    android:text="@string/show_packages" 
     local:MvxBind="Click ShowPackageListCommand"/>
 </LinearLayout>

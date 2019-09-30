@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/colorAccent"
+    android:text="123qwerty"
+    android:textSize="24dp"
+    local:MvxBind="Text Barcode" />
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/colorPrimary"
+    android:text="24x30x50"
+    android:textSize="18dp"
+    local:MvxBind="Text Format('{0}x{1}x{2}', Width, Height, Depth)" />
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="@color/colorPrimary"/>
+</LinearLayout>
+
