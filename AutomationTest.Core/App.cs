@@ -1,4 +1,7 @@
 ﻿using AutomationTest.Core.ViewModels;
+using AutomationTest.Data.Repositories;
+using MvvmCross;
+using MvvmCross.IoC;
 using MvvmCross.ViewModels;
 
 namespace AutomationTest.Core
@@ -7,6 +10,13 @@ namespace AutomationTest.Core
     {
         public override void Initialize()
         {
+            CreatableTypes()
+                .EndingWith("Service")
+                .AsInterfaces()
+                .RegisterAsLazySingleton();
+
+            Mvx.IoCProvider.LazyConstructAndRegisterSingleton<IPackageRepository, PackageRepository>();
+
             RegisterAppStart<RootViewModel>();
         }
     }
