@@ -9735,7 +9735,7 @@ namespace AutomationTest.Droid
 			public const int design_text_input_password_icon = 2131427371;
 			
 			// aapt resource value: 0x7F0B002C
-			public const int MenuView = 2131427372;
+			public const int menu_view = 2131427372;
 			
 			// aapt resource value: 0x7F0B002D
 			public const int mtrl_layout_snackbar = 2131427373;
@@ -9761,17 +9761,17 @@ namespace AutomationTest.Droid
 			// aapt resource value: 0x7F0B0034
 			public const int notification_template_part_time = 2131427380;
 			
+			// aapt resource value: 0x7F0B0035
+			public const int package_dimms = 2131427381;
+			
 			// aapt resource value: 0x7F0B0036
-			public const int PackageDimmsView = 2131427382;
+			public const int package_item = 2131427382;
 			
 			// aapt resource value: 0x7F0B0037
-			public const int PackageListView = 2131427383;
-			
-			// aapt resource value: 0x7F0B0035
-			public const int package_item = 2131427381;
+			public const int package_list = 2131427383;
 			
 			// aapt resource value: 0x7F0B0038
-			public const int RootView = 2131427384;
+			public const int root_view = 2131427384;
 			
 			// aapt resource value: 0x7F0B0039
 			public const int select_dialog_item_material = 2131427385;

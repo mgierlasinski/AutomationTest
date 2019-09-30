@@ -16,7 +16,7 @@ namespace AutomationTest.Droid.Activities
 
             Xamarin.Essentials.Platform.Init(this, bundle);
 
-            SetContentView(Resource.Layout.RootView);
+            SetContentView(Resource.Layout.root_view);
         }
     }
 }

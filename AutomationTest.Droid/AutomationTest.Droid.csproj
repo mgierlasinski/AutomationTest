@@ -125,22 +125,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\MenuView.xml">
+    <AndroidResource Include="Resources\layout\menu_view.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\PackageListView.xml">
+    <AndroidResource Include="Resources\layout\package_list.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\PackageDimmsView.xml">
+    <AndroidResource Include="Resources\layout\package_dimms.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\RootView.xml">
+    <AndroidResource Include="Resources\layout\root_view.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

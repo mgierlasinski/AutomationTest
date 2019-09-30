@@ -13,7 +13,7 @@ namespace AutomationTest.Droid.Fragments
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
-            return this.BindingInflate(Resource.Layout.PackageListView, null);
+            return this.BindingInflate(Resource.Layout.package_list, null);
         }
     }
 }
