@@ -7,7 +7,7 @@ using System;
 namespace AutomationTest.Droid
 {
     [Application]
-    public class MainApplication : MvxAppCompatApplication<MvxAppCompatSetup<App>, App>
+    public class MainApplication : MvxAppCompatApplication<Setup, App>
     {
         public MainApplication(IntPtr javaReference, JniHandleOwnership transfer)
             : base(javaReference, transfer)

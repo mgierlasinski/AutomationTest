@@ -13,6 +13,9 @@ namespace AutomationTest.Droid.Activities
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+
+            Xamarin.Essentials.Platform.Init(this, bundle);
+
             SetContentView(Resource.Layout.RootView);
         }
     }

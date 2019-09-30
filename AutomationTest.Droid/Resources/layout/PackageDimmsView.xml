@@ -4,11 +4,47 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+  <EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/enter_barcode"
+    android:inputType="textPersonName"
+    local:MvxBind="Text Barcode"/>
   <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textSize="24dp"
-    android:text="Package dimms view"
-    android:gravity="center" 
-    local:MvxBind="Text Title"/>
+    android:text="@string/enter_dimms"/>
+  <EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/width"
+    android:inputType="numberDecimal"
+    local:MvxBind="Text Width"/>
+  <EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/height"
+    android:inputType="numberDecimal"
+    local:MvxBind="Text Height"/>
+  <EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/depth"
+    android:inputType="numberDecimal"
+    local:MvxBind="Text Depth"/>
+  <Button 
+    android:layout_width="match_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/reset" 
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    local:MvxBind="Click ResetCommand"/>
+  <Button 
+    android:layout_width="match_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/save" 
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    local:MvxBind="Click SaveCommand"/>
 </LinearLayout>

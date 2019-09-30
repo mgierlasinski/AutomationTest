@@ -1,4 +1,10 @@
 <resources>
-    <string name="app_name">Automation Test</string>
-    <string name="action_settings">Settings</string>
+  <string name="app_name">Automation Test</string>
+  <string name="enter_barcode">Enter barcode</string>
+  <string name="enter_dimms">Enter Dimms Width x Height x Depth</string>
+  <string name="width">W</string>
+  <string name="height">H</string>
+  <string name="depth">D</string>
+  <string name="reset">Reset</string>
+  <string name="save">Save</string>
 </resources>
