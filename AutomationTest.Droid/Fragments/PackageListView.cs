@@ -7,7 +7,11 @@ using MvvmCross.Platforms.Android.Presenters.Attributes;
 
 namespace AutomationTest.Droid.Fragments
 {
-    [MvxFragmentPresentation(typeof(RootViewModel), Resource.Id.content_frame, true)]
+    [MvxFragmentPresentation(typeof(RootViewModel), Resource.Id.content_frame, true,
+        Android.Resource.Animation.SlideInLeft,
+        Android.Resource.Animation.SlideOutRight,
+        Android.Resource.Animation.SlideInLeft,
+        Android.Resource.Animation.SlideOutRight)]
     public class PackageListView : MvxFragment<PackageListViewModel>
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
