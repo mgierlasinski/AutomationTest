@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomationTest.Core", "Auto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationTest.Droid", "AutomationTest.Droid\AutomationTest.Droid.csproj", "{01D225F9-6751-4525-9EFF-2A01AED8A097}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationTest.Data", "AutomationTest.Data\AutomationTest.Data.csproj", "{A73651EF-4B8A-40B4-848F-9FF89361830A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomationTest.Data", "AutomationTest.Data\AutomationTest.Data.csproj", "{A73651EF-4B8A-40B4-848F-9FF89361830A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationTest.UnitTests", "AutomationTest.UnitTests\AutomationTest.UnitTests.csproj", "{7A8469E6-3366-42C5-B05F-B43D16C8DAC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{A73651EF-4B8A-40B4-848F-9FF89361830A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A73651EF-4B8A-40B4-848F-9FF89361830A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A73651EF-4B8A-40B4-848F-9FF89361830A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A8469E6-3366-42C5-B05F-B43D16C8DAC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A8469E6-3366-42C5-B05F-B43D16C8DAC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A8469E6-3366-42C5-B05F-B43D16C8DAC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A8469E6-3366-42C5-B05F-B43D16C8DAC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

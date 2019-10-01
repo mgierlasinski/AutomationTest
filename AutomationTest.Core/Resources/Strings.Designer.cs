@@ -22,7 +22,7 @@ namespace AutomationTest.Core.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Strings {
+    public class Strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace AutomationTest.Core.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AutomationTest.Core.Resources.Strings", typeof(Strings).Assembly);
@@ -51,7 +51,7 @@ namespace AutomationTest.Core.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace AutomationTest.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Error on save: {0}.
         /// </summary>
-        internal static string PackageSaveError {
+        public static string PackageSaveError {
             get {
                 return ResourceManager.GetString("PackageSaveError", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace AutomationTest.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Dimm ({0} x {1} x {2}) {3} saved .
         /// </summary>
-        internal static string PackageSaveSuccess {
+        public static string PackageSaveSuccess {
             get {
                 return ResourceManager.GetString("PackageSaveSuccess", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace AutomationTest.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Error when loading packages: {0}.
         /// </summary>
-        internal static string PackagesLoadError {
+        public static string PackagesLoadError {
             get {
                 return ResourceManager.GetString("PackagesLoadError", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace AutomationTest.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Value has incorrect format.
         /// </summary>
-        internal static string ValueHasIncorrectFormat {
+        public static string ValueHasIncorrectFormat {
             get {
                 return ResourceManager.GetString("ValueHasIncorrectFormat", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace AutomationTest.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Value is mandatory.
         /// </summary>
-        internal static string ValueIsMandatory {
+        public static string ValueIsMandatory {
             get {
                 return ResourceManager.GetString("ValueIsMandatory", resourceCulture);
             }
