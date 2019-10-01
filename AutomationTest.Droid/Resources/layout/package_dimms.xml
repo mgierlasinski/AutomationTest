@@ -1,50 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="@string/enter_barcode"
-    android:inputType="textPersonName"
-    local:MvxBind="Text Barcode.Value; Error Barcode.Error"/>
-  <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="24dp"
-    android:text="@string/enter_dimms"/>
-  <EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="@string/width"
-    android:inputType="numberDecimal"
-    local:MvxBind="Text Width.Value; Error Width.Error"/>
-  <EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="@string/height"
-    android:inputType="numberDecimal"
-    local:MvxBind="Text Height.Value; Error Height.Error"/>
-  <EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="@string/depth"
-    android:inputType="numberDecimal"
-    local:MvxBind="Text Depth.Value; Error Depth.Error"/>
-  <Button 
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/reset" 
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    local:MvxBind="Click ResetCommand"/>
-  <Button 
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/save" 
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    local:MvxBind="Click SaveCommand"/>
-</LinearLayout>
+
+    <EditText
+        android:id="@+id/barcodeEditText"
+        android:hint="@string/enter_barcode"
+        android:inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        local:layout_constraintStart_toStartOf="parent"
+        local:layout_constraintEnd_toEndOf="parent"
+        local:layout_constraintTop_toTopOf="parent"
+        local:MvxBind="Text Barcode.Value; Error Barcode.Error"/>
+
+    <TextView
+        android:id="@+id/enterDimmsTextView"
+        android:text="@string/enter_dimms"
+        android:textSize="@dimen/header_text_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginTop="@dimen/large_margin"
+        local:layout_constraintStart_toStartOf="parent"
+        local:layout_constraintEnd_toEndOf="parent"
+        local:layout_constraintTop_toBottomOf="@+id/barcodeEditText" />
+
+    <EditText
+        android:id="@+id/widthEditText"
+        android:hint="@string/width"
+        android:inputType="numberDecimal"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:gravity="center"
+        local:layout_constraintStart_toStartOf="parent"
+        local:layout_constraintTop_toBottomOf="@+id/enterDimmsTextView"
+        local:MvxBind="Text Width.Value; Error Width.Error"/>
+
+    <EditText
+        android:id="@+id/heightEditText"
+        android:hint="@string/height"
+        android:inputType="numberDecimal"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        local:layout_constraintEnd_toStartOf="@+id/depthEditText"
+        local:layout_constraintStart_toEndOf="@+id/widthEditText"
+        local:layout_constraintTop_toBottomOf="@+id/enterDimmsTextView"
+        local:MvxBind="Text Height.Value; Error Height.Error"/>
+
+    <EditText
+        android:id="@+id/depthEditText"
+        android:hint="@string/depth"
+        android:inputType="numberDecimal"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/small_margin"
+        android:gravity="center"
+        local:layout_constraintEnd_toEndOf="parent"
+        local:layout_constraintTop_toBottomOf="@+id/enterDimmsTextView"
+        local:MvxBind="Text Depth.Value; Error Depth.Error" />
+
+    <Button
+        android:id="@+id/resetButton"
+        android:text="@string/reset"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/small_margin"
+        local:layout_constraintBottom_toBottomOf="parent"
+        local:layout_constraintStart_toStartOf="parent"
+        local:MvxBind="Click ResetCommand" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:text="@string/save"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/small_margin"
+        local:layout_constraintBottom_toBottomOf="parent"
+        local:layout_constraintEnd_toEndOf="parent"
+        local:MvxBind="Click SaveCommand" />
+
+</android.support.constraint.ConstraintLayout>

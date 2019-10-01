@@ -1,26 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout  
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-  <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textColor="@color/colorAccent"
-    android:text="123qwerty"
-    android:textSize="24dp"
-    local:MvxBind="Text Barcode" />
-  <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textColor="@color/colorPrimary"
-    android:text="24x30x50"
-    android:textSize="18dp"
-    local:MvxBind="Text Format('{0}x{1}x{2}', Width, Height, Depth)" />
-  <View
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:background="@color/colorPrimary"/>
-</LinearLayout>
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/barcodeTextView"
+        android:text="123qwerty"
+        android:textSize="@dimen/header_text_size"
+        android:textColor="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        local:layout_constraintStart_toStartOf="parent"
+        local:layout_constraintEnd_toEndOf="parent"
+        local:layout_constraintTop_toTopOf="parent"
+        local:MvxBind="Text Barcode"/>
+
+    <TextView
+        android:id="@+id/dimensTextView"
+        android:text="24 x 30 x 50"
+        android:textSize="@dimen/normal_text_size"
+        android:textColor="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        local:layout_constraintStart_toStartOf="parent"
+        local:layout_constraintEnd_toEndOf="parent"
+        local:layout_constraintTop_toBottomOf="@+id/barcodeTextView"
+        local:MvxBind="Text Format('{0} x {1} x {2}', Width, Height, Depth)"/>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/separator_height"
+        android:background="@color/colorSeparator"
+        android:layout_marginTop="@dimen/small_margin"
+        local:layout_constraintTop_toBottomOf="@+id/dimensTextView"/>
+
+</android.support.constraint.ConstraintLayout>
 

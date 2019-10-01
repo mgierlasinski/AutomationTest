@@ -21,6 +21,14 @@ namespace AutomationTest.Core.ViewModels
             set => SetProperty(ref _packages, value);
         }
 
+        private bool _isListEmpty;
+
+        public bool IsListEmpty
+        {
+            get => _isListEmpty;
+            set => SetProperty(ref _isListEmpty, value);
+        }
+
         public PackageListViewModel(IPackageService packageService, IPopupService popupService)
         {
             _packageService = packageService;
@@ -29,6 +37,8 @@ namespace AutomationTest.Core.ViewModels
 
         public override Task Initialize()
         {
+            IsListEmpty = false;
+
             try
             {
                 Packages = _packageService.GetPackagesForDay(DateTimeOffset.Now).ToList();
@@ -36,6 +46,10 @@ namespace AutomationTest.Core.ViewModels
             catch (Exception e)
             {
                 _popupService.ShowToast($"Error when loading packages: {e.Message}");
+            }
+            finally
+            {
+                IsListEmpty = !Packages.Any();
             }
 
             return Task.CompletedTask;

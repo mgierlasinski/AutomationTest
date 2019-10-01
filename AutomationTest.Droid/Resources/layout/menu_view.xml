@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+<android.support.constraint.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android" 
     xmlns:local="http://schemas.android.com/apk/res-auto" 
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <Button 
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/enter_package_dimms" 
-    local:MvxBind="Click ShowPackageDimmsCommand"/>
-  <Button 
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/show_packages" 
-    local:MvxBind="Click ShowPackageListCommand"/>
-</LinearLayout>
+
+    <Button
+        android:id="@+id/dimmsButton"
+        android:text="@string/enter_package_dimms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/large_margin"
+        android:layout_marginRight="@dimen/large_margin"
+        local:layout_constraintLeft_toLeftOf="parent"
+        local:layout_constraintRight_toRightOf="parent"
+        local:layout_constraintTop_toTopOf="parent"
+        local:layout_constraintBottom_toBottomOf="parent"
+        local:MvxBind="Click ShowPackageDimmsCommand"/>
+
+    <Button
+        android:id="@+id/packagesButton"
+        android:text="@string/show_packages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/large_margin"
+        android:layout_marginRight="@dimen/large_margin" 
+        local:layout_constraintLeft_toLeftOf="@+id/dimmsButton"
+        local:layout_constraintTop_toBottomOf="@+id/dimmsButton"
+        local:MvxBind="Click ShowPackageListCommand"/>
+
+</android.support.constraint.ConstraintLayout>

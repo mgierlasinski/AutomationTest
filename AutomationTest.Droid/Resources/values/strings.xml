@@ -9,4 +9,5 @@
   <string name="depth">D</string>
   <string name="reset">Reset</string>
   <string name="save">Save</string>
+  <string name="no_packages_for_today">No packages for today</string>
 </resources>
