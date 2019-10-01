@@ -7,7 +7,7 @@ using MvvmCross.Platforms.Android.Presenters.Attributes;
 
 namespace AutomationTest.Droid.Fragments
 {
-    [MvxFragmentPresentation(typeof(RootViewModel), Resource.Id.content_frame, true)]
+    [MvxFragmentPresentation(typeof(RootViewModel), Resource.Id.content_frame, false)]
     public class MenuView : MvxFragment<MenuViewModel>
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

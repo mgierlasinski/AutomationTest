@@ -1,9 +1,9 @@
 ﻿using AutomationTest.Core.Models;
 using AutomationTest.Core.Services;
+using AutomationTest.Core.Validation;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using System;
-using System.Threading.Tasks;
 
 namespace AutomationTest.Core.ViewModels
 {
@@ -11,43 +11,20 @@ namespace AutomationTest.Core.ViewModels
     {
         private readonly IPackageService _packageService;
         private readonly IPopupService _popupService;
+        private readonly ValidationGroup _validationGroup;
 
         public IMvxCommand SaveCommand { get; set; }
 
         public IMvxCommand ResetCommand { get; set; }
 
-        private string _barcode;
+        public ValidatedProperty<string> Barcode { get; set; }
 
-        public string Barcode
-        {
-            get => _barcode;
-            set => SetProperty(ref _barcode, value);
-        }
+        public ValidatedProperty<string> Width { get; set; }
 
-        private double _width;
+        public ValidatedProperty<string> Height { get; set; }
 
-        public double Width
-        {
-            get => _width;
-            set => SetProperty(ref _width, value);
-        }
-
-        private double _height;
-
-        public double Height
-        {
-            get => _height;
-            set => SetProperty(ref _height, value);
-        }
-
-        private double _depth;
-
-        public double Depth
-        {
-            get => _depth;
-            set => SetProperty(ref _depth, value);
-        }
-
+        public ValidatedProperty<string> Depth { get; set; }
+        
         public PackageDimmsViewModel(IPackageService packageService, IPopupService popupService)
         {
             _packageService = packageService;
@@ -55,20 +32,28 @@ namespace AutomationTest.Core.ViewModels
 
             SaveCommand = new MvxCommand(SaveAction);
             ResetCommand = new MvxCommand(ResetAction);
+
+            Barcode = new ValidatedProperty<string>().IsRequired();
+            Width = new ValidatedProperty<string>().IsRequired();
+            Height = new ValidatedProperty<string>().IsRequired();
+            Depth = new ValidatedProperty<string>().IsRequired();
+
+            _validationGroup = new ValidationGroup(Barcode, Width, Height, Depth);
         }
 
         private void SaveAction()
         {
             try
             {
-                // TODO: validate
+                if (!_validationGroup.Validate())
+                    return;
 
                 _packageService.AddPackage(new PackageItem
                 {
-                    Barcode = Barcode,
-                    Width = Width,
-                    Height = Height,
-                    Depth = Depth,
+                    Barcode = Barcode.Value,
+                    Width = double.Parse(Width.Value),
+                    Height = double.Parse(Height.Value),
+                    Depth = double.Parse(Depth.Value),
                     Date = DateTimeOffset.Now
                 });
 
@@ -82,10 +67,10 @@ namespace AutomationTest.Core.ViewModels
 
         private void ResetAction()
         {
-            Barcode = string.Empty;
-            Width = 0;
-            Height = 0;
-            Depth = 0;
+            Barcode.Value = string.Empty;
+            Width.Value = string.Empty;
+            Height.Value = string.Empty;
+            Depth.Value = string.Empty;
         }
     }
 }

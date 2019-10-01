@@ -9,7 +9,7 @@
     android:layout_height="wrap_content"
     android:hint="@string/enter_barcode"
     android:inputType="textPersonName"
-    local:MvxBind="Text Barcode"/>
+    local:MvxBind="Text Barcode.Value; Error Barcode.Error"/>
   <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -20,19 +20,19 @@
     android:layout_height="wrap_content"
     android:hint="@string/width"
     android:inputType="numberDecimal"
-    local:MvxBind="Text Width"/>
+    local:MvxBind="Text Width.Value; Error Width.Error"/>
   <EditText
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:hint="@string/height"
     android:inputType="numberDecimal"
-    local:MvxBind="Text Height"/>
+    local:MvxBind="Text Height.Value; Error Height.Error"/>
   <EditText
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:hint="@string/depth"
     android:inputType="numberDecimal"
-    local:MvxBind="Text Depth"/>
+    local:MvxBind="Text Depth.Value; Error Depth.Error"/>
   <Button 
     android:layout_width="match_parent" 
     android:layout_height="wrap_content" 
