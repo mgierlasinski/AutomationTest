@@ -126,4 +126,7 @@
   <data name="PackagesLoadError" xml:space="preserve">
     <value>Error when loading packages: {0}</value>
   </data>
+  <data name="ValueIsMandatory" xml:space="preserve">
+    <value>Value is mandatory</value>
+  </data>
 </root>

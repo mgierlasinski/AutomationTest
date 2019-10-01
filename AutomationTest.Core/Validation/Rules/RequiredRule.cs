@@ -1,4 +1,6 @@
-﻿namespace AutomationTest.Core.Validation.Rules
+﻿using AutomationTest.Core.Resources;
+
+namespace AutomationTest.Core.Validation.Rules
 {
     public class RequiredRule : IValidationRule<string>
     {
@@ -6,7 +8,7 @@
         {
             return !string.IsNullOrWhiteSpace(value)
                 ? ValidationResult.Success()
-                : ValidationResult.Failed("Value is mandatory");
+                : ValidationResult.Failed(Strings.ValueIsMandatory);
         }
     }
 }

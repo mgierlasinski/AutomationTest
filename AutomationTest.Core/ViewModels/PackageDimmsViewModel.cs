@@ -1,4 +1,5 @@
-﻿using AutomationTest.Core.Models;
+﻿using AutomationTest.Core.Extensions;
+using AutomationTest.Core.Models;
 using AutomationTest.Core.Resources;
 using AutomationTest.Core.Services;
 using AutomationTest.Core.Validation;
@@ -52,9 +53,9 @@ namespace AutomationTest.Core.ViewModels
                 var package = new PackageItem
                 {
                     Barcode = Barcode.Value,
-                    Width = double.Parse(Width.Value),
-                    Height = double.Parse(Height.Value),
-                    Depth = double.Parse(Depth.Value),
+                    Width = Width.Value.ToDouble(),
+                    Height = Height.Value.ToDouble(),
+                    Depth = Depth.Value.ToDouble(),
                     Date = DateTimeOffset.Now
                 };
 

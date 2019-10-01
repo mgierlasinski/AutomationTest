@@ -86,5 +86,14 @@ namespace AutomationTest.Core.Resources {
                 return ResourceManager.GetString("PackagesLoadError", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value is mandatory.
+        /// </summary>
+        internal static string ValueIsMandatory {
+            get {
+                return ResourceManager.GetString("ValueIsMandatory", resourceCulture);
+            }
+        }
     }
 }
