@@ -6,12 +6,7 @@ namespace AutomationTest.Core.Extensions
     {
         public static double ToDouble(this string value)
         {
-            if (double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out var result))
-            {
-                return result;
-            }
-
-            return 0;
+            return double.Parse(value, NumberStyles.Any, CultureInfo.InvariantCulture);
         }
     }
 }

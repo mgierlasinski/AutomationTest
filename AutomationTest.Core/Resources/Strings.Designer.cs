@@ -88,6 +88,15 @@ namespace AutomationTest.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Value has incorrect format.
+        /// </summary>
+        internal static string ValueHasIncorrectFormat {
+            get {
+                return ResourceManager.GetString("ValueHasIncorrectFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Value is mandatory.
         /// </summary>
         internal static string ValueIsMandatory {

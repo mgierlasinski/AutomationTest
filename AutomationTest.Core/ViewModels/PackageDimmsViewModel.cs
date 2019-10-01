@@ -36,9 +36,9 @@ namespace AutomationTest.Core.ViewModels
             ResetCommand = new MvxCommand(ResetAction);
 
             Barcode = new ValidatedProperty<string>().IsRequired();
-            Width = new ValidatedProperty<string>().IsRequired();
-            Height = new ValidatedProperty<string>().IsRequired();
-            Depth = new ValidatedProperty<string>().IsRequired();
+            Width = new ValidatedProperty<string>().IsRequired().IsDouble();
+            Height = new ValidatedProperty<string>().IsRequired().IsDouble();
+            Depth = new ValidatedProperty<string>().IsRequired().IsDouble();
 
             _validationGroup = new ValidationGroup(Barcode, Width, Height, Depth);
         }

@@ -2,7 +2,7 @@
 
 namespace AutomationTest.Core.Validation.Rules
 {
-    public class RequiredRule : IValidationRule<string>
+    public class IsRequiredRule : IValidationRule<string>
     {
         public ValidationResult Validate(string value)
         {
