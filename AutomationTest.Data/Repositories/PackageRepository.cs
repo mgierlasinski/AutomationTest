@@ -1,4 +1,5 @@
 ﻿using AutomationTest.Data.Models;
+using AutomationTest.Data.Resources;
 using MvvmCross.Logging;
 using Realms;
 using Realms.Exceptions;
@@ -43,7 +44,7 @@ namespace AutomationTest.Data.Repositories
             }
             catch (RealmDuplicatePrimaryKeyValueException)
             {
-                throw new ArgumentException($"Package with barcode {package.Barcode} already exists");
+                throw new ArgumentException(string.Format(ErrorMessages.PackageAlreadyExists, package.Barcode));
             }
         }
 

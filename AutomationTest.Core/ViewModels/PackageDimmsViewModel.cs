@@ -1,4 +1,5 @@
 ﻿using AutomationTest.Core.Models;
+using AutomationTest.Core.Resources;
 using AutomationTest.Core.Services;
 using AutomationTest.Core.Validation;
 using MvvmCross.Commands;
@@ -48,20 +49,25 @@ namespace AutomationTest.Core.ViewModels
                 if (!_validationGroup.Validate())
                     return;
 
-                _packageService.AddPackage(new PackageItem
+                var package = new PackageItem
                 {
                     Barcode = Barcode.Value,
                     Width = double.Parse(Width.Value),
                     Height = double.Parse(Height.Value),
                     Depth = double.Parse(Depth.Value),
                     Date = DateTimeOffset.Now
-                });
+                };
 
-                _popupService.ShowToast("Package saved successfully");
+                _packageService.AddPackage(package);
+                _popupService.ShowToast(string.Format(Strings.PackageSaveSuccess, 
+                    package.Width, 
+                    package.Height, 
+                    package.Depth, 
+                    package.Barcode));
             }
             catch (Exception e)
             {
-                _popupService.ShowToast($"Error on save: {e.Message}");
+                _popupService.ShowToast(string.Format(Strings.PackageSaveError, e.Message));
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using AutomationTest.Core.Models;
+using AutomationTest.Core.Resources;
 using AutomationTest.Core.Services;
 using MvvmCross.ViewModels;
 using System;
@@ -45,7 +46,7 @@ namespace AutomationTest.Core.ViewModels
             }
             catch (Exception e)
             {
-                _popupService.ShowToast($"Error when loading packages: {e.Message}");
+                _popupService.ShowToast(string.Format(Strings.PackagesLoadError, e.Message));
             }
             finally
             {
