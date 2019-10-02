@@ -7,6 +7,11 @@ namespace AutomationTest.Core.Validation.Rules
     {
         public ValidationResult Validate(string value)
         {
+            if (string.IsNullOrEmpty(value))
+            {
+                return ValidationResult.Success();
+            }
+
             if (double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out var result))
             {
                 return ValidationResult.Success();

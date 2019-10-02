@@ -28,6 +28,16 @@ namespace AutomationTest.Core.Validation
             private set => SetProperty(ref _error, value);
         }
 
+        public ValidatedProperty()
+        {
+            
+        }
+
+        public ValidatedProperty(T defaultValue)
+        {
+            Value = defaultValue;
+        }
+
         public bool Validate()
         {
             foreach (var rule in Rules)
