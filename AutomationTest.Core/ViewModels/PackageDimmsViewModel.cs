@@ -65,6 +65,8 @@ namespace AutomationTest.Core.ViewModels
                     package.Height, 
                     package.Depth, 
                     package.Barcode));
+
+                ResetAction();
             }
             catch (Exception e)
             {

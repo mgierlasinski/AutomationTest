@@ -71,6 +71,7 @@
     <Button
         android:id="@+id/resetButton"
         android:text="@string/reset"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/small_margin"
