@@ -1,4 +1,5 @@
 ﻿using AutomationTest.Core.ViewModels;
+using AutomationTest.Data.Infrastructure;
 using AutomationTest.Data.Repositories;
 using MvvmCross;
 using MvvmCross.IoC;
@@ -15,6 +16,7 @@ namespace AutomationTest.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
+            Mvx.IoCProvider.LazyConstructAndRegisterSingleton<IDatabaseProvider, DatabaseProvider>();
             Mvx.IoCProvider.LazyConstructAndRegisterSingleton<IPackageRepository, PackageRepository>();
 
             RegisterAppStart<RootViewModel>();

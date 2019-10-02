@@ -1,39 +1,21 @@
-﻿using AutomationTest.Data.Models;
+﻿using AutomationTest.Data.Infrastructure;
+using AutomationTest.Data.Models;
 using AutomationTest.Data.Resources;
-using MvvmCross.Logging;
 using Realms;
 using Realms.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace AutomationTest.Data.Repositories
 {
     public class PackageRepository : IPackageRepository
     {
-        private Realm _realm;
-        private readonly IMvxLog _log;
+        private readonly Realm _realm;
 
-        public PackageRepository(IMvxLog log)
+        public PackageRepository(IDatabaseProvider provider)
         {
-            _log = log;
-        }
-
-        public async Task InitializeAsync()
-        {
-            if (_realm != null)
-                return;
-
-            try
-            {
-                _realm = await Realm.GetInstanceAsync();
-            }
-            catch (Exception e)
-            {
-                _log.ErrorException("InitializeAsync failed", e);
-                throw;
-            }
+            _realm = provider.GetInstance();
         }
 
         public void AddPackage(Package package)
