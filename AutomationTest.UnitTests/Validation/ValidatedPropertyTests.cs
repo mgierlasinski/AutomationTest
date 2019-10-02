@@ -42,7 +42,7 @@ namespace AutomationTest.UnitTests.Validation
         }
 
         [Fact]
-        public void Validate_IsDoubleNoValue_ValidationSuccess()
+        public void Validate_IsDoubleNoValue_ValidationFailed()
         {
             // Arrange
             var property = new ValidatedProperty<string>().IsDouble();
@@ -51,7 +51,7 @@ namespace AutomationTest.UnitTests.Validation
             var result = property.Validate();
 
             // Assert
-            AssertSuccess(ref result, property);
+            AssertFailed(ref result, property, Strings.ValueHasIncorrectFormat);
         }
 
         [Theory]
