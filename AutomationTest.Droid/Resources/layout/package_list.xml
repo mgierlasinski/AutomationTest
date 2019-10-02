@@ -5,14 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/dateButton"
+        android:text="15/11/2019"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        local:layout_constraintLeft_toLeftOf="parent"
+        local:layout_constraintRight_toRightOf="parent"
+        local:layout_constraintTop_toTopOf="parent"
+        local:MvxBind="Click PickDateCommand; Text Format('{0:dd/MM/yyy}', Date)"/>
+
     <mvvmcross.droid.support.v7.recyclerview.MvxRecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
         local:MvxItemTemplate="@layout/package_item" 
         local:MvxBind="ItemsSource Packages"/>
 
     <TextView 
-        android:text="@string/no_packages_for_today"
+        android:text="@string/no_packages_for_given_day"
         android:textSize="@dimen/normal_text_size"
         android:gravity="center"
         android:layout_width="match_parent"
@@ -21,8 +34,18 @@
         android:layout_marginRight="@dimen/large_margin"
         local:layout_constraintLeft_toLeftOf="parent"
         local:layout_constraintRight_toRightOf="parent"
-        local:layout_constraintTop_toTopOf="parent"
+        local:layout_constraintTop_toBottomOf="@+id/dateButton"
         local:layout_constraintBottom_toBottomOf="parent"
         local:MvxBind="Visibility Visibility(IsListEmpty)"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        local:layout_constraintLeft_toLeftOf="parent"
+        local:layout_constraintRight_toRightOf="parent"
+        local:layout_constraintTop_toBottomOf="@+id/dateButton"
+        local:layout_constraintBottom_toBottomOf="parent" 
+        local:MvxBind="Visibility Visibility(IsLoading)"/>
 
 </android.support.constraint.ConstraintLayout>
