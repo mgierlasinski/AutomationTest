@@ -1,4 +1,5 @@
 ﻿using AutomationTest.Core.ViewModels;
+using AutomationTest.UnitTests.Assertions;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using MvvmCross.Navigation;
@@ -31,10 +32,8 @@ namespace AutomationTest.UnitTests.ViewModels
             using (new AssertionScope())
             {
                 viewModel.Should().NotBeNull();
-                viewModel.ShowPackageDimmsCommand.Should().NotBeNull();
-                viewModel.ShowPackageDimmsCommand.CanExecute().Should().BeTrue();
-                viewModel.ShowPackageListCommand.Should().NotBeNull();
-                viewModel.ShowPackageListCommand.CanExecute().Should().BeTrue();
+                viewModel.ShowPackageDimmsCommand.ShouldBe().Available();
+                viewModel.ShowPackageListCommand.ShouldBe().Available();
             }
         }
 

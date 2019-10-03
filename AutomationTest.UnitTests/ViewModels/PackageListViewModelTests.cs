@@ -10,6 +10,7 @@ using NSubstitute;
 using NSubstitute.ExceptionExtensions;
 using System;
 using System.Collections.Generic;
+using AutomationTest.UnitTests.Assertions;
 using Xunit;
 
 namespace AutomationTest.UnitTests.ViewModels
@@ -40,8 +41,7 @@ namespace AutomationTest.UnitTests.ViewModels
             using (new AssertionScope())
             {
                 viewModel.Should().NotBeNull();
-                viewModel.PickDateCommand.Should().NotBeNull();
-                viewModel.PickDateCommand.CanExecute().Should().BeTrue();
+                viewModel.PickDateCommand.ShouldBe().Available();
                 viewModel.Date.Should().BeCloseTo(DateTimeOffset.Now);
                 viewModel.Packages.Should().NotBeNull().And.BeEmpty();
                 viewModel.IsLoading.Should().BeFalse();
