@@ -1,4 +1,6 @@
-﻿using AutomationTest.Core.Services;
+﻿using AutomationTest.Core.Models;
+using AutomationTest.Core.Resources;
+using AutomationTest.Core.Services;
 using AutomationTest.Core.Validation.Rules;
 using AutomationTest.Core.ViewModels;
 using AutomationTest.UnitTests.Assertions;
@@ -56,6 +58,64 @@ namespace AutomationTest.UnitTests.ViewModels
                 viewModel.Depth.Rules.Should()
                     .ContainSingle(x => x is IsRequiredRule).And
                     .ContainSingle(x => x is IsDoubleRule);
+            }
+        }
+
+        [Fact]
+        public void ResetCommand_CommandExecuted_FormFieldsEmpty()
+        {
+            // Arrange
+            var viewModel = Ioc.IoCConstruct<PackageDimmsViewModel>();
+            InitializeViewModelWithValues(viewModel);
+
+            // Act
+            viewModel.ResetCommand.Execute();
+
+            // Assert
+            AssertFormIsEmpty(viewModel);
+        }
+
+        [Fact]
+        public void SaveCommand_CommandExecuted_PackedSaveFormFieldsEmpty()
+        {
+            // Arrange
+            var packageService = Ioc.Resolve<IPackageService>();
+            var popupService = Ioc.Resolve<IPopupService>();
+
+            var viewModel = Ioc.IoCConstruct<PackageDimmsViewModel>();
+            InitializeViewModelWithValues(viewModel);
+
+            // Act
+            viewModel.SaveCommand.Execute();
+
+            // Assert
+            var expectedMessage = string.Format(Strings.PackageSaveSuccess, 5, 16, 3.5, "123qwerty");
+            popupService.Received(1).ShowToast(Arg.Is(expectedMessage));
+
+            packageService.Received(1).AddPackage(Arg.Is<PackageItem>(x => x.Barcode == "123qwerty"));
+
+            AssertFormIsEmpty(viewModel);
+        }
+
+        // TODO: test validation failed
+        // TODO: test exception thrown
+
+        private void InitializeViewModelWithValues(PackageDimmsViewModel viewModel)
+        {
+            viewModel.Barcode.Value = "123qwerty";
+            viewModel.Width.Value = "5";
+            viewModel.Height.Value = "16";
+            viewModel.Depth.Value = "3.5";
+        }
+
+        private void AssertFormIsEmpty(PackageDimmsViewModel viewModel)
+        {
+            using (new AssertionScope())
+            {
+                viewModel.Barcode.Value.Should().BeEmpty();
+                viewModel.Width.Value.Should().BeEmpty();
+                viewModel.Height.Value.Should().BeEmpty();
+                viewModel.Depth.Value.Should().BeEmpty();
             }
         }
     }
