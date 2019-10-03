@@ -77,7 +77,7 @@ namespace AutomationTest.UnitTests.ViewModels
         }
 
         [Fact]
-        public void SaveCommand_CommandExecuted_PackedSaveFormFieldsEmpty()
+        public void SaveCommand_CommandExecuted_PackageSavedFormFieldsEmpty()
         {
             // Arrange
             var packageService = Ioc.Resolve<IPackageService>();
@@ -95,6 +95,30 @@ namespace AutomationTest.UnitTests.ViewModels
             packageService.Received(1).AddPackage(Arg.Is<PackageItem>(x => x.Barcode == "123qwerty"));
 
             AssertFormIsEmpty(viewModel);
+        }
+
+        [Fact]
+        public void SaveCommand_ValidationFailed_PackageNotSaved()
+        {
+            // Arrange
+            var packageService = Ioc.Resolve<IPackageService>();
+            var popupService = Ioc.Resolve<IPopupService>();
+
+            var viewModel = Ioc.IoCConstruct<PackageDimmsViewModel>();
+            InitializeViewModelWithValues(viewModel);
+
+            // Act
+            viewModel.Barcode.Value = string.Empty;
+            viewModel.SaveCommand.Execute();
+
+            // Assert
+            using (new AssertionScope())
+            {
+                viewModel.Barcode.Error.Should().Be(Strings.ValueIsMandatory);
+
+                packageService.Received(0).AddPackage(Arg.Any<PackageItem>());
+                popupService.Received(0).ShowToast(Arg.Any<string>());
+            }
         }
 
         [Fact]
@@ -117,8 +141,6 @@ namespace AutomationTest.UnitTests.ViewModels
             var expectedError = string.Format(Strings.PackageSaveError, "Ooops");
             popupService.Received(1).ShowToast(Arg.Is(expectedError));
         }
-
-        // TODO: test validation failed
 
         private void InitializeViewModelWithValues(PackageDimmsViewModel viewModel)
         {
