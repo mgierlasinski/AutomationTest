@@ -135,7 +135,7 @@ namespace AutomationTest.UnitTests.Repositories
             var result = _repository.GetPackagesForRange(from, to).ToList();
 
             // Assert
-            result.Should().HaveCount(0);
+            result.Should().BeEmpty();
         }
 
         public void Dispose()
