@@ -17,7 +17,7 @@ namespace AutomationTest.Data.Infrastructure
         {
             try
             {
-                var config = new InMemoryConfiguration(nameof(InMemoryDatabaseProvider));
+                var config = new InMemoryConfiguration(Guid.NewGuid().ToString());
                 return Realm.GetInstance(config);
             }
             catch (Exception e)

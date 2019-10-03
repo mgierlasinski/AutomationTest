@@ -11,18 +11,18 @@ namespace AutomationTest.Data.Repositories
 {
     public class PackageRepository : IPackageRepository
     {
-        private readonly Realm _realm;
+        protected Realm Realm { get; }
 
         public PackageRepository(IDatabaseProvider provider)
         {
-            _realm = provider.GetInstance();
+            Realm = provider.GetInstance();
         }
 
         public void AddPackage(Package package)
         {
             try
             {
-                _realm.Write(() => _realm.Add(package));
+                Realm.Write(() => Realm.Add(package));
             }
             catch (RealmDuplicatePrimaryKeyValueException)
             {
@@ -32,7 +32,7 @@ namespace AutomationTest.Data.Repositories
 
         public IEnumerable<Package> GetPackagesForRange(DateTimeOffset from, DateTimeOffset to)
         {
-            return _realm.All<Package>()
+            return Realm.All<Package>()
                 .Where(x => x.Date >= from && x.Date <= to)
                 .OrderByDescending(x => x.Barcode);
         }
