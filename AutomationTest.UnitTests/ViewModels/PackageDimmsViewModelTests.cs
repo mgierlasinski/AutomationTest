@@ -8,6 +8,7 @@ using FluentAssertions;
 using FluentAssertions.Execution;
 using MvvmCross.Tests;
 using NSubstitute;
+using System;
 using Xunit;
 
 namespace AutomationTest.UnitTests.ViewModels
@@ -91,14 +92,33 @@ namespace AutomationTest.UnitTests.ViewModels
             // Assert
             var expectedMessage = string.Format(Strings.PackageSaveSuccess, 5, 16, 3.5, "123qwerty");
             popupService.Received(1).ShowToast(Arg.Is(expectedMessage));
-
             packageService.Received(1).AddPackage(Arg.Is<PackageItem>(x => x.Barcode == "123qwerty"));
 
             AssertFormIsEmpty(viewModel);
         }
 
+        [Fact]
+        public void SaveCommand_ServiceThrownException_DisplayErrorAsToast()
+        {
+            // Arrange
+            var popupService = Ioc.Resolve<IPopupService>();
+
+            var packageService = Ioc.Resolve<IPackageService>();
+            packageService.When(x => x.AddPackage(Arg.Any<PackageItem>()))
+                .Do(x => throw new Exception("Ooops"));
+
+            var viewModel = Ioc.IoCConstruct<PackageDimmsViewModel>();
+            InitializeViewModelWithValues(viewModel);
+
+            // Act
+            viewModel.SaveCommand.Execute();
+
+            // Assert
+            var expectedError = string.Format(Strings.PackageSaveError, "Ooops");
+            popupService.Received(1).ShowToast(Arg.Is(expectedError));
+        }
+
         // TODO: test validation failed
-        // TODO: test exception thrown
 
         private void InitializeViewModelWithValues(PackageDimmsViewModel viewModel)
         {
