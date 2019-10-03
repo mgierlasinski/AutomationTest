@@ -24,7 +24,8 @@ namespace AutomationTest.UnitTests.Repositories
             _repository = Ioc.IoCConstruct<PackageRepositoryDisposable>();
         }
 
-        [Fact(Skip = "In-memory Realm randomly crashes test runner after assertion")]
+        //[Fact(Skip = "In-memory Realm randomly crashes test runner after assertion")]
+        [Fact]
         public void AddPackage_ValidData_PackageAddedToDatabase()
         {
             // Arrange
