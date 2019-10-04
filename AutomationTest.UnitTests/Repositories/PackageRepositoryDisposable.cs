@@ -31,11 +31,8 @@ namespace AutomationTest.UnitTests.Repositories
 
             if (disposing)
             {
-                // Free any other managed objects here.
                 CloseDatabase();
             }
-
-            // Free any unmanaged objects here.
 
             _disposed = true;
         }
